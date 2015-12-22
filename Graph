@@ -1,0 +1,6 @@
+Representations -
+1. Adjacency matrix (Edge search and removal - O(1), Space = O(v^2), Add vertex = O(v^2))
+2. Adjacency List (Array of linked lists, for each vertex a list)
+3. Incidence matrix
+4. Incidence List
+
