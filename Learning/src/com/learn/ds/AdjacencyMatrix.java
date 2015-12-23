@@ -7,12 +7,17 @@ import java.util.Map;
 
 /**
  * @author sagar
+ * A 2D matrix
+ * 
  * Constant complexity for edge search, removal and addition
- * Space required = O(n*n)
  * O(n*n) complexity for whole graph traversal
  * O(n) complexity for finding input or output edges from a node
- * Good for dense graph where number of edges is lose to n*n
+ * Good for dense graph where number of edges is close to n*n
  *
+ * Space required = O(n*n/8) bytes
+ * graph density d=e/n^2
+ * 
+ * If 8e > n^2/8  => e/n^2 > 1/64  => d > 1/64 then use Matrix else go with adjacency list.
  */
 public class AdjacencyMatrix {
 	int number;
@@ -26,6 +31,12 @@ public class AdjacencyMatrix {
 		super();
 		this.number = number;
 		this.adj = adj;
+	}
+	
+	public AdjacencyMatrix(int number) {
+		super();
+		this.number = number;
+		this.adj = new int[number][number];
 	}
 
 	// O(1)
