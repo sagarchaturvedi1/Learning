@@ -1,0 +1,22 @@
+Purpose -
+This project aims for anaphora resolution in news text.
+
+Install -
+Refer instructions given in INSTALL file.
+
+Tools -
+1. Jsoup - To get news data from given URL
+2. StanfordNLP - For coreference resolution
+
+Major Classes -
+1. AnaphoraResolverMain - It contains the main function.
+2. NewsFetcher - Extracts news text from given Url.
+3. CSVFileWriter - Writes the output to CSV file.
+
+Approach -
+1. Get the news title and text from given news Url.
+2. Create StanfordCoreNLP pipeline that performs all operation like tokenization, sentence split and coreference resolution.
+3. Annotate the title and text using that pipeline.
+4. Get Coreference Chain Annotations from annotated document and make pairs of coreferences for each sentence number.
+5. Store Sentence Number (Int), Coreference 1(String) and coreference 2 (String) in HashBasedTable of google guava library. This table structure is <Row,Column,Value>.
+6. Combine Coreference pairs for each sentence and save them into csv with other details like Url, Serial NUmber etc.
